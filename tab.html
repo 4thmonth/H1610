@@ -11,7 +11,7 @@
         li{
             list-style: none;
         }
-        div{
+        #box{
             width: 300px;
             height: 240px;
             border: 1px solid black;
@@ -32,18 +32,36 @@
             background: red;
         }
     </style>
+    <script>
+        window.onload=function(){
+            var oDox=document.getElementById("box");
+            var aBtn=document.getElementsByTagName("li");
+            var aDiv=oDox.getElementsByTagName("div");
+
+            for(var i=0;i<aBtn.length;i++){
+                aBtn[i].index=i;
+                aBtn[i].onclick=function(){
+                    for(var i=0;i<aBtn.length;i++){
+                        aBtn[i].className="";
+                        aDiv[i].style.display="none"
+                    }
+                    this.className="on";
+                    aDiv[this.index].style.display="block"
+                }
+            }
+        }
+    </script>
 </head>
 <body>
-<div>
-    <ul>
+<div id="box">
+    <ul >
         <li class="on">tab1</li>
         <li>tab2</li>
         <li>tab3</li>
     </ul>
-    <div></div>
-    <div></div>
-    <div></div>
-    <div></div>
+    <div>123</div>
+    <div>456</div>
+    <div>789</div>
 </div>
 </body>
 </html>
